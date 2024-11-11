@@ -33,6 +33,10 @@ jobs:
         env:
           # SOME_SECRET: ${{ secrets.SOME_SECRET }}   # configure environment variables
         run: python main.py
+
+      - name: List files
+        run: ls -R
+
           
       - name: commit files
         run: |
@@ -40,7 +44,12 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-          
+      
+      
+      - name: Check git status
+        run: git status
+
+
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
