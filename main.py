@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 if not os.path.exists("sample.txt"):
