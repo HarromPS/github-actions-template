@@ -33,18 +33,24 @@ jobs:
         run: python main.py
           
       - name: commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+        # run: |
+        #   git config --local user.email "action@github.com"
+        #   git config --local user.name "GitHub Action"
+        #   git add -A
+        #   git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+
+        run : |
+        git config --global user.name 'HarromPS'
+          git config --global user.email 'HarromPS@users.noreply.github.com'
+          git commit -am "Automated report"
+          git push
       
       
       - name: Check git status
         run: git status
 
-      - name: GitHub Push
-        uses: ad-m/github-push-action@v0.8.0    
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          branch: main 
+      # - name: GitHub Push
+      #   uses: ad-m/github-push-action@v0.8.0    
+      #   with:
+      #     github_token: ${{ secrets.TOKEN }}
+      #     branch: main 
