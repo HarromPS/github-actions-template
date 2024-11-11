@@ -1,49 +1,49 @@
-# # name of workflow servers as a label 
-# name: run main.py
+# name of workflow servers as a label 
+name: run main.py
 
-# # on property which tells when to run 
-# on:
-#   # it is scheduled on monday
-#   schedule:   
-#     - cron: '0 0 * * 1' # At 00:00 on Monday
+# on property which tells when to run 
+on:
+  # it is scheduled on monday
+  schedule:   
+    - cron: '1 * * * *' # At 00:00 on Monday
 
-# # actual action/code running on cloud for automation tasks
-# jobs:
-#   # job is build on
-#   build:
-#     # which runs on 
-#     runs-on: ubuntu-latest
+# actual action/code running on cloud for automation tasks
+jobs:
+  # job is build on
+  build:
+    # which runs on 
+    runs-on: ubuntu-latest
 
-#     # performs the following steps
-#     steps:
+    # performs the following steps
+    steps:
 
-#       - name: checkout repo content
-#         uses: actions/checkout@v2 # gets the repo code 
+      - name: checkout repo content
+        uses: actions/checkout@v2 # gets the repo code 
 
-#       - name: setup python
-#         uses: actions/setup-python@v4
-#         with:
-#           python-version: '3.9' # setups the working environment by installing tools 
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # setups the working environment by installing tools 
           
-#       - name: install python packages # installs dependencies 
-#         run: |
-#           python -m pip install --upgrade pip   
-#           pip install -r requirements.txt
+      - name: install python packages # installs dependencies 
+        run: |
+          python -m pip install --upgrade pip   
+          # pip install -r requirements.txt
           
-#       - name: execute py script # run main.py
-#         env:
-#           SOME_SECRET: ${{ secrets.SOME_SECRET }}   # configure environment variables
-#         run: python main.py
+      - name: execute py script # run main.py
+        env:
+          # SOME_SECRET: ${{ secrets.SOME_SECRET }}   # configure environment variables
+        run: python main.py
           
-#       - name: commit files
-#         run: |
-#           git config --local user.email "action@github.com"
-#           git config --local user.name "GitHub Action"
-#           git add -A
-#           git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+      - name: commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
           
-#       - name: push changes
-#         uses: ad-m/github-push-action@v0.6.0
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           branch: main 
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: main 
