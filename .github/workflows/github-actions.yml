@@ -30,8 +30,6 @@ jobs:
           python -m pip install --upgrade pip   
           
       - name: execute py script # run main.py
-        env:
-          # SOME_SECRET: ${{ secrets.SOME_SECRET }}   # configure environment variables
         run: python main.py
 
       - name: List files
