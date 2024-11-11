@@ -31,10 +31,6 @@ jobs:
           
       - name: execute py script # run main.py
         run: python main.py
-
-      - name: List files
-        run: ls -R
-
           
       - name: commit files
         run: |
@@ -46,7 +42,6 @@ jobs:
       
       - name: Check git status
         run: git status
-
 
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
