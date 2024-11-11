@@ -18,7 +18,7 @@ jobs:
     steps:
 
       - name: checkout repo content
-        uses: actions/checkout@v2 # gets the repo code 
+        uses: actions/checkout@v4 # gets the repo code 
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -44,7 +44,7 @@ jobs:
         run: git status
 
       - name: push changes
-        uses: actions/checkout
+        uses: ad-m/github-push-action@main
         with:
           github_token: ${{ secrets.TOKEN }}
           branch: main 
