@@ -4,8 +4,8 @@ name: run main.py
 # on property which tells when to run 
 on:
   # it is scheduled on monday
-  schedule:   
-    - cron: '1 * * * *' # At 00:00 on Monday
+  schedule:  
+    - cron: '*/1 * * * *' # At every minute
 
 # actual action/code running on cloud for automation tasks
 jobs:
